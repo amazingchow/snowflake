@@ -2,11 +2,18 @@ cmake_minimum_required(VERSION 3.5)
 
 project(snowflake)
 
+find_package(benchmark 1.5.2 REQUIRED COMPONENTS benchmark benchmark_main)
+
+if(benchmark_FOUND)
+    message ("libbenchmark.a and libbenchmark_main.a found")
+else()
+    message (FATAL_ERROR "cannot find libbenchmark.a and libbenchmark_main.a ")
+endif()
+
 ############################################################
 # Create a library
 ############################################################
 
-# Generate the shared library from the library sources
 add_library(snowflake SHARED 
     src/snowflake.cpp
 )
@@ -17,17 +24,30 @@ target_include_directories(snowflake
 )
 
 ############################################################
-# Create an executable
+# Create the tester
 ############################################################
 
-# Add an executable with the above sources
 add_executable(photon_dance_snowflake_tester
-    src/main.cpp
+    src/tester.cpp
 )
 
-# link the new snowflake target with the photon_dance_snowflake_tester target
-target_link_libraries( photon_dance_snowflake_tester
+target_link_libraries(photon_dance_snowflake_tester
     PRIVATE 
+        snowflake
+)
+
+############################################################
+# Create the benchmark_tester
+############################################################
+
+add_executable(photon_dance_snowflake_benchmark_tester
+    src/benchmark_tester.cpp
+)
+
+target_link_libraries( photon_dance_snowflake_benchmark_tester
+    PRIVATE 
+        benchmark::benchmark
+        benchmark::benchmark_main
         snowflake
 )
 
