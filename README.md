@@ -31,6 +31,38 @@ counter within milliseconds, the 12-bit can support most up to 4096 sequence num
 
 * the UUIDs are increasing in order by timestamp.
 
+## Benchmark
+
+use google benchmark framework, as shown below, we can generate 342 UUIDs per millisecond.
+
+```text
+Run on (12 X 4600 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 256 KiB (x6)
+  L3 Unified 12288 KiB (x1)
+Load Average: 0.52, 0.48, 0.55
+--------------------------------------------------------------------------
+Benchmark                                Time             CPU   Iterations
+--------------------------------------------------------------------------
+BM_NextUUID/iterations:10000000        244 ns          244 ns     10000000
+```
+
+### Tips
+
+before execute photon_dance_snowflake_benchmark_tester, you should do
+
+```shell
+sudo cpupower frequency-set --governor performance
+```
+
+after then, you should do
+
+```shell
+sudo cpupower frequency-set --governor performance
+```
+
 ## Contributing
 
 ### Step 1
