@@ -7,7 +7,7 @@ static void BM_NextUUID(benchmark::State& state)
     Snowflake* snowflake = new Snowflake(8);
     for (auto _ : state)
     {
-        snowflake->next_uuid();
+        snowflake->next_uuid_v1();
     }
     delete snowflake;
 }

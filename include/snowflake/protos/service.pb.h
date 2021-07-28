@@ -183,20 +183,13 @@ class PhotonDanceSnowflakeServiceRequest PROTOBUF_FINAL :
   enum : int {
     kMachineIdFieldNumber = 1,
   };
-  // string machine_id = 1;
+  // int64 machine_id = 1;
   void clear_machine_id();
-  const std::string& machine_id() const;
-  void set_machine_id(const std::string& value);
-  void set_machine_id(std::string&& value);
-  void set_machine_id(const char* value);
-  void set_machine_id(const char* value, size_t size);
-  std::string* mutable_machine_id();
-  std::string* release_machine_id();
-  void set_allocated_machine_id(std::string* machine_id);
+  ::PROTOBUF_NAMESPACE_ID::int64 machine_id() const;
+  void set_machine_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  const std::string& _internal_machine_id() const;
-  void _internal_set_machine_id(const std::string& value);
-  std::string* _internal_mutable_machine_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_machine_id() const;
+  void _internal_set_machine_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest)
@@ -206,7 +199,7 @@ class PhotonDanceSnowflakeServiceRequest PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 machine_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_service_2eproto;
 };
@@ -326,20 +319,13 @@ class PhotonDanceSnowflakeServiceResponse PROTOBUF_FINAL :
   enum : int {
     kUuidFieldNumber = 1,
   };
-  // string uuid = 1;
+  // int64 uuid = 1;
   void clear_uuid();
-  const std::string& uuid() const;
-  void set_uuid(const std::string& value);
-  void set_uuid(std::string&& value);
-  void set_uuid(const char* value);
-  void set_uuid(const char* value, size_t size);
-  std::string* mutable_uuid();
-  std::string* release_uuid();
-  void set_allocated_uuid(std::string* uuid);
+  ::PROTOBUF_NAMESPACE_ID::int64 uuid() const;
+  void set_uuid(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  const std::string& _internal_uuid() const;
-  void _internal_set_uuid(const std::string& value);
-  std::string* _internal_mutable_uuid();
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_uuid() const;
+  void _internal_set_uuid(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse)
@@ -349,7 +335,7 @@ class PhotonDanceSnowflakeServiceResponse PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr uuid_;
+  ::PROTOBUF_NAMESPACE_ID::int64 uuid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_service_2eproto;
 };
@@ -364,130 +350,48 @@ class PhotonDanceSnowflakeServiceResponse PROTOBUF_FINAL :
 #endif  // __GNUC__
 // PhotonDanceSnowflakeServiceRequest
 
-// string machine_id = 1;
+// int64 machine_id = 1;
 inline void PhotonDanceSnowflakeServiceRequest::clear_machine_id() {
-  machine_id_.ClearToEmpty();
+  machine_id_ = PROTOBUF_LONGLONG(0);
 }
-inline const std::string& PhotonDanceSnowflakeServiceRequest::machine_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 PhotonDanceSnowflakeServiceRequest::_internal_machine_id() const {
+  return machine_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PhotonDanceSnowflakeServiceRequest::machine_id() const {
   // @@protoc_insertion_point(field_get:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
   return _internal_machine_id();
 }
-inline void PhotonDanceSnowflakeServiceRequest::set_machine_id(const std::string& value) {
+inline void PhotonDanceSnowflakeServiceRequest::_internal_set_machine_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  machine_id_ = value;
+}
+inline void PhotonDanceSnowflakeServiceRequest::set_machine_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_machine_id(value);
   // @@protoc_insertion_point(field_set:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
-}
-inline std::string* PhotonDanceSnowflakeServiceRequest::mutable_machine_id() {
-  // @@protoc_insertion_point(field_mutable:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
-  return _internal_mutable_machine_id();
-}
-inline const std::string& PhotonDanceSnowflakeServiceRequest::_internal_machine_id() const {
-  return machine_id_.Get();
-}
-inline void PhotonDanceSnowflakeServiceRequest::_internal_set_machine_id(const std::string& value) {
-  
-  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void PhotonDanceSnowflakeServiceRequest::set_machine_id(std::string&& value) {
-  
-  machine_id_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
-}
-inline void PhotonDanceSnowflakeServiceRequest::set_machine_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
-}
-inline void PhotonDanceSnowflakeServiceRequest::set_machine_id(const char* value,
-    size_t size) {
-  
-  machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
-}
-inline std::string* PhotonDanceSnowflakeServiceRequest::_internal_mutable_machine_id() {
-  
-  return machine_id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* PhotonDanceSnowflakeServiceRequest::release_machine_id() {
-  // @@protoc_insertion_point(field_release:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
-  return machine_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void PhotonDanceSnowflakeServiceRequest::set_allocated_machine_id(std::string* machine_id) {
-  if (machine_id != nullptr) {
-    
-  } else {
-    
-  }
-  machine_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), machine_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id)
 }
 
 // -------------------------------------------------------------------
 
 // PhotonDanceSnowflakeServiceResponse
 
-// string uuid = 1;
+// int64 uuid = 1;
 inline void PhotonDanceSnowflakeServiceResponse::clear_uuid() {
-  uuid_.ClearToEmpty();
+  uuid_ = PROTOBUF_LONGLONG(0);
 }
-inline const std::string& PhotonDanceSnowflakeServiceResponse::uuid() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 PhotonDanceSnowflakeServiceResponse::_internal_uuid() const {
+  return uuid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 PhotonDanceSnowflakeServiceResponse::uuid() const {
   // @@protoc_insertion_point(field_get:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
   return _internal_uuid();
 }
-inline void PhotonDanceSnowflakeServiceResponse::set_uuid(const std::string& value) {
+inline void PhotonDanceSnowflakeServiceResponse::_internal_set_uuid(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  uuid_ = value;
+}
+inline void PhotonDanceSnowflakeServiceResponse::set_uuid(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_uuid(value);
   // @@protoc_insertion_point(field_set:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
-}
-inline std::string* PhotonDanceSnowflakeServiceResponse::mutable_uuid() {
-  // @@protoc_insertion_point(field_mutable:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
-  return _internal_mutable_uuid();
-}
-inline const std::string& PhotonDanceSnowflakeServiceResponse::_internal_uuid() const {
-  return uuid_.Get();
-}
-inline void PhotonDanceSnowflakeServiceResponse::_internal_set_uuid(const std::string& value) {
-  
-  uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void PhotonDanceSnowflakeServiceResponse::set_uuid(std::string&& value) {
-  
-  uuid_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
-}
-inline void PhotonDanceSnowflakeServiceResponse::set_uuid(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
-}
-inline void PhotonDanceSnowflakeServiceResponse::set_uuid(const char* value,
-    size_t size) {
-  
-  uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
-}
-inline std::string* PhotonDanceSnowflakeServiceResponse::_internal_mutable_uuid() {
-  
-  return uuid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* PhotonDanceSnowflakeServiceResponse::release_uuid() {
-  // @@protoc_insertion_point(field_release:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
-  return uuid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void PhotonDanceSnowflakeServiceResponse::set_allocated_uuid(std::string* uuid) {
-  if (uuid != nullptr) {
-    
-  } else {
-    
-  }
-  uuid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), uuid,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid)
 }
 
 #ifdef __GNUC__

@@ -60,20 +60,21 @@ target_include_directories(photon_dance_snowflake_server
         ${PROJECT_SOURCE_DIR}/include
 )
 
-set(ss_proto_srcs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.grpc.pb.cc")
-set(ss_proto_hdrs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.grpc.pb.h")
-set(ss_grpc_srcs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.pb.cc")
-set(ss_grpc_hdrs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.pb.h")
-add_library(ss_proto
-    ${ss_proto_srcs}
-    ${ss_proto_hdrs}
-    ${ss_grpc_srcs}
-    ${ss_grpc_hdrs})
+set(snowflake_proto_srcs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.grpc.pb.cc")
+set(snowflake_proto_hdrs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.grpc.pb.h")
+set(snowflake_grpc_srcs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.pb.cc")
+set(snowflake_grpc_hdrs "${PROJECT_SOURCE_DIR}/include/snowflake/protos/service.pb.h")
+add_library(snowflake_proto
+    ${snowflake_proto_srcs}
+    ${snowflake_proto_hdrs}
+    ${snowflake_grpc_srcs}
+    ${snowflake_grpc_hdrs})
 target_link_libraries(photon_dance_snowflake_server
     PRIVATE 
         gRPC::grpc++
         gRPC::grpc++_reflection
-        ss_proto
+        snowflake_proto
+        snowflake
 )
 
 ############################################################
@@ -112,13 +113,15 @@ target_link_libraries( photon_dance_snowflake_benchmark_tester
 # install (TARGETS photon_dance_snowflake_tester
 #     DESTINATION bin)
 
-# # Library
-# install (TARGETS snowflake
-#     LIBRARY DESTINATION lib)
+# Library
+install (TARGETS snowflake
+    LIBRARY DESTINATION lib)
+install (TARGETS snowflake_proto
+    LIBRARY DESTINATION lib)
 
-# # Header files
-# install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ 
-#     DESTINATION include)
+# Header files
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/ 
+    DESTINATION include)
 
 # Config
 # install (FILES snowflake.conf

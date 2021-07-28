@@ -81,8 +81,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_service_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\rservice.proto\022\036photon_dance_snowflake_"
   "service\"8\n\"PhotonDanceSnowflakeServiceRe"
-  "quest\022\022\n\nmachine_id\030\001 \001(\t\"3\n#PhotonDance"
-  "SnowflakeServiceResponse\022\014\n\004uuid\030\001 \001(\t2\264"
+  "quest\022\022\n\nmachine_id\030\001 \001(\003\"3\n#PhotonDance"
+  "SnowflakeServiceResponse\022\014\n\004uuid\030\001 \001(\0032\264"
   "\001\n\033PhotonDanceSnowflakeService\022\224\001\n\007GetUU"
   "ID\022B.photon_dance_snowflake_service.Phot"
   "onDanceSnowflakeServiceRequest\032C.photon_"
@@ -122,17 +122,12 @@ PhotonDanceSnowflakeServiceRequest::PhotonDanceSnowflakeServiceRequest(::PROTOBU
 PhotonDanceSnowflakeServiceRequest::PhotonDanceSnowflakeServiceRequest(const PhotonDanceSnowflakeServiceRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_machine_id().empty()) {
-    machine_id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_machine_id(), 
-      GetArena());
-  }
+  machine_id_ = from.machine_id_;
   // @@protoc_insertion_point(copy_constructor:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest)
 }
 
 void PhotonDanceSnowflakeServiceRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PhotonDanceSnowflakeServiceRequest_service_2eproto.base);
-  machine_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  machine_id_ = PROTOBUF_LONGLONG(0);
 }
 
 PhotonDanceSnowflakeServiceRequest::~PhotonDanceSnowflakeServiceRequest() {
@@ -143,7 +138,6 @@ PhotonDanceSnowflakeServiceRequest::~PhotonDanceSnowflakeServiceRequest() {
 
 void PhotonDanceSnowflakeServiceRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  machine_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void PhotonDanceSnowflakeServiceRequest::ArenaDtor(void* object) {
@@ -167,7 +161,7 @@ void PhotonDanceSnowflakeServiceRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  machine_id_.ClearToEmpty();
+  machine_id_ = PROTOBUF_LONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -178,12 +172,10 @@ const char* PhotonDanceSnowflakeServiceRequest::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string machine_id = 1;
+      // int64 machine_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_machine_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          machine_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -215,14 +207,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string machine_id = 1;
-  if (this->machine_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_machine_id().data(), static_cast<int>(this->_internal_machine_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "photon_dance_snowflake_service.PhotonDanceSnowflakeServiceRequest.machine_id");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_machine_id(), target);
+  // int64 machine_id = 1;
+  if (this->machine_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_machine_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -241,10 +229,10 @@ size_t PhotonDanceSnowflakeServiceRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string machine_id = 1;
-  if (this->machine_id().size() > 0) {
+  // int64 machine_id = 1;
+  if (this->machine_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_machine_id());
   }
 
@@ -279,7 +267,7 @@ void PhotonDanceSnowflakeServiceRequest::MergeFrom(const PhotonDanceSnowflakeSer
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.machine_id().size() > 0) {
+  if (from.machine_id() != 0) {
     _internal_set_machine_id(from._internal_machine_id());
   }
 }
@@ -305,7 +293,7 @@ bool PhotonDanceSnowflakeServiceRequest::IsInitialized() const {
 void PhotonDanceSnowflakeServiceRequest::InternalSwap(PhotonDanceSnowflakeServiceRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  machine_id_.Swap(&other->machine_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(machine_id_, other->machine_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PhotonDanceSnowflakeServiceRequest::GetMetadata() const {
@@ -328,17 +316,12 @@ PhotonDanceSnowflakeServiceResponse::PhotonDanceSnowflakeServiceResponse(::PROTO
 PhotonDanceSnowflakeServiceResponse::PhotonDanceSnowflakeServiceResponse(const PhotonDanceSnowflakeServiceResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_uuid().empty()) {
-    uuid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_uuid(), 
-      GetArena());
-  }
+  uuid_ = from.uuid_;
   // @@protoc_insertion_point(copy_constructor:photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse)
 }
 
 void PhotonDanceSnowflakeServiceResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_PhotonDanceSnowflakeServiceResponse_service_2eproto.base);
-  uuid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  uuid_ = PROTOBUF_LONGLONG(0);
 }
 
 PhotonDanceSnowflakeServiceResponse::~PhotonDanceSnowflakeServiceResponse() {
@@ -349,7 +332,6 @@ PhotonDanceSnowflakeServiceResponse::~PhotonDanceSnowflakeServiceResponse() {
 
 void PhotonDanceSnowflakeServiceResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  uuid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void PhotonDanceSnowflakeServiceResponse::ArenaDtor(void* object) {
@@ -373,7 +355,7 @@ void PhotonDanceSnowflakeServiceResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  uuid_.ClearToEmpty();
+  uuid_ = PROTOBUF_LONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -384,12 +366,10 @@ const char* PhotonDanceSnowflakeServiceResponse::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string uuid = 1;
+      // int64 uuid = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_uuid();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          uuid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -421,14 +401,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string uuid = 1;
-  if (this->uuid().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_uuid().data(), static_cast<int>(this->_internal_uuid().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "photon_dance_snowflake_service.PhotonDanceSnowflakeServiceResponse.uuid");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_uuid(), target);
+  // int64 uuid = 1;
+  if (this->uuid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_uuid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -447,10 +423,10 @@ size_t PhotonDanceSnowflakeServiceResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string uuid = 1;
-  if (this->uuid().size() > 0) {
+  // int64 uuid = 1;
+  if (this->uuid() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_uuid());
   }
 
@@ -485,7 +461,7 @@ void PhotonDanceSnowflakeServiceResponse::MergeFrom(const PhotonDanceSnowflakeSe
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.uuid().size() > 0) {
+  if (from.uuid() != 0) {
     _internal_set_uuid(from._internal_uuid());
   }
 }
@@ -511,7 +487,7 @@ bool PhotonDanceSnowflakeServiceResponse::IsInitialized() const {
 void PhotonDanceSnowflakeServiceResponse::InternalSwap(PhotonDanceSnowflakeServiceResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  uuid_.Swap(&other->uuid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(uuid_, other->uuid_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PhotonDanceSnowflakeServiceResponse::GetMetadata() const {
