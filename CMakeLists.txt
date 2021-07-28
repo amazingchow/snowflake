@@ -2,12 +2,14 @@ cmake_minimum_required(VERSION 3.5)
 
 project(snowflake)
 
-find_package(benchmark 1.5.2 REQUIRED COMPONENTS benchmark benchmark_main)
+# Install google benchmark
+## https://github.com/google/benchmark#installation
+find_package(benchmark 1.5.5 REQUIRED COMPONENTS benchmark benchmark_main)
 
 if(benchmark_FOUND)
     message ("libbenchmark.a and libbenchmark_main.a found")
 else()
-    message (FATAL_ERROR "cannot find libbenchmark.a and libbenchmark_main.a ")
+    message (FATAL_ERROR "cannot find libbenchmark.a and libbenchmark_main.a")
 endif()
 
 ############################################################

@@ -4,7 +4,7 @@ To efficiently generate 64-bit UUID for large-scale distributed application.
 
 ## What is Snowflake?
 
-The UUID is made up of the following components
+The snowflake UUID is comprised of
 
 ```text
 +--------+-------------------+--------------+-------------------+
@@ -15,29 +15,29 @@ The UUID is made up of the following components
 
 * 1-bit sign flag
 
-always be zero.
+Always be zero.
 
-* 41-bit epoch timestamp in millisecond precision
+* 41-bits epoch timestamp in millisecond precision
 
-not store current timestamp, but the delta timestamp.  
+Not current timestamp, but the delta timestamp, so we can use it for a long long long time.  
 
-* 10-bit configured machine id
+* 10-bits machine id
 
-can be deployed on most up to 1024 nodes.
+The snowflake UUID service can be deployed on most up to 1024 nodes.
 
-* 12-bit sequence number
+* 12-bits sequence number
 
-counter within milliseconds, the 12-bit can support most up to 4096 sequence numbers per node (the same machine) and per millisecond (the same timestamp).
+Counter within milliseconds, the 12-bits can support most up to 4096 sequence numbers per (node + millisecond).
 
-* the UUIDs are increasing in order by timestamp.
+The UUIDs are increased in order by timestamp.
 
 ## Requirements
 
 The following minimum versions are required to build the library
 
-* CMake 3.5
-* GCC 4.9
-* Google Benchmark 1.5.2
+* CMake 3.5+
+* GCC 7.5+
+* Google Benchmark 1.5.5+
 
 ## Installation
 
@@ -45,7 +45,7 @@ The following minimum versions are required to build the library
 # Check out the library.
 $ git clone https://github.com/amazingchow/photon-dance-snowflake.git
 
-# Go to the library root directory
+# Go to the library root directory.
 $ cd photon-dance-snowflake
 
 # Make a build directory to place the build output.
@@ -63,7 +63,7 @@ $ sudo cmake --build "build" --config Release --target install
 
 ## Benchmark
 
-use google benchmark framework, as shown below, we can generate 342 UUIDs per millisecond.
+As google benchmark framework shows, we can generate 342 UUIDs per millisecond.
 
 ```text
 Run on (12 X 4600 MHz CPU s)
@@ -81,16 +81,28 @@ BM_NextUUID/iterations:10000000        244 ns          244 ns     10000000
 
 ### Tips
 
-before execute photon_dance_snowflake_benchmark_tester, you should do
+Before execute photon_dance_snowflake_benchmark_tester, please record current CPU governor, for instance, current CPU governor is ``powersave``.
+
+```
+cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+```
+
+You better set CPU governor mode as ``performance``.
 
 ```shell
 sudo cpupower frequency-set --governor performance
 ```
 
-after then, you should do
+If you meet the "cpupower: command not found", just install the linux-tools
 
 ```shell
-sudo cpupower frequency-set --governor performance
+sudo apt-get install -y linux-tools-$(uname -r)
+```
+
+After benchmark, you better set CPU governor mode back to ``powersave``
+
+```shell
+sudo cpupower frequency-set --governor powersave
 ```
 
 ## Contributing
