@@ -63,20 +63,20 @@ $ sudo cmake --build "build" --config Release --target install
 
 ## Benchmark
 
-As google benchmark framework shows, we can generate 342 UUIDs per millisecond.
+As google benchmark framework shows, we can generate 4098 UUIDs per millisecond.
 
 ```text
-Run on (12 X 4600 MHz CPU s)
+Run on (12 X 4304.79 MHz CPU s)
 CPU Caches:
   L1 Data 32 KiB (x6)
   L1 Instruction 32 KiB (x6)
   L2 Unified 256 KiB (x6)
   L3 Unified 12288 KiB (x1)
-Load Average: 0.52, 0.48, 0.55
---------------------------------------------------------------------------
-Benchmark                                Time             CPU   Iterations
---------------------------------------------------------------------------
-BM_NextUUID/iterations:10000000        244 ns          244 ns     10000000
+Load Average: 1.48, 1.36, 1.25
+-----------------------------------------------------------------------------------------------
+Benchmark                                                     Time             CPU   Iterations
+-----------------------------------------------------------------------------------------------
+BM_NextUUID/iterations:100000000/real_time/threads:4       61.0 ns          244 ns    400000000
 ```
 
 ### Tips

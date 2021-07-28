@@ -4,13 +4,13 @@
 
 static void BM_NextUUID(benchmark::State& state)
 {
-    Snowflake* ticker = new Snowflake(8);
+    Snowflake* snowflake = new Snowflake(8);
     for (auto _ : state)
     {
-        ticker->next_uuid();
+        snowflake->next_uuid();
     }
-    delete ticker;
+    delete snowflake;
 }
-BENCHMARK(BM_NextUUID)->Iterations(10000000);
+BENCHMARK(BM_NextUUID)->Iterations(1e8)->Threads(4)->UseRealTime();
 
 BENCHMARK_MAIN();
