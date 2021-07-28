@@ -3,7 +3,7 @@ syntax = "proto3";
 package photon_dance_snowflake_service;
 
 service PhotonDanceSnowflakeService {
-  rpc GetUUID (stream PhotonDanceSnowflakeServiceRequest) returns (stream PhotonDanceSnowflakeServiceResponse) {}
+  rpc GetUUID (PhotonDanceSnowflakeServiceRequest) returns (PhotonDanceSnowflakeServiceResponse) {}
 }
 
 message PhotonDanceSnowflakeServiceRequest {

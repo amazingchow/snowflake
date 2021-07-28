@@ -82,12 +82,12 @@ const char descriptor_table_protodef_service_2eproto[] PROTOBUF_SECTION_VARIABLE
   "\n\rservice.proto\022\036photon_dance_snowflake_"
   "service\"8\n\"PhotonDanceSnowflakeServiceRe"
   "quest\022\022\n\nmachine_id\030\001 \001(\t\"3\n#PhotonDance"
-  "SnowflakeServiceResponse\022\014\n\004uuid\030\001 \001(\t2\270"
-  "\001\n\033PhotonDanceSnowflakeService\022\230\001\n\007GetUU"
+  "SnowflakeServiceResponse\022\014\n\004uuid\030\001 \001(\t2\264"
+  "\001\n\033PhotonDanceSnowflakeService\022\224\001\n\007GetUU"
   "ID\022B.photon_dance_snowflake_service.Phot"
   "onDanceSnowflakeServiceRequest\032C.photon_"
   "dance_snowflake_service.PhotonDanceSnowf"
-  "lakeServiceResponse\"\000(\0010\001b\006proto3"
+  "lakeServiceResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_service_2eproto_deps[1] = {
 };
@@ -97,7 +97,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_ser
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_service_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_service_2eproto = {
-  false, false, descriptor_table_protodef_service_2eproto, "service.proto", 353,
+  false, false, descriptor_table_protodef_service_2eproto, "service.proto", 349,
   &descriptor_table_service_2eproto_once, descriptor_table_service_2eproto_sccs, descriptor_table_service_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_service_2eproto::offsets,
   file_level_metadata_service_2eproto, 2, file_level_enum_descriptors_service_2eproto, file_level_service_descriptors_service_2eproto,
