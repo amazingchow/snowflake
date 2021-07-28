@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package photon_dance_snowflake_service;
+
+service PhotonDanceSnowflakeService {
+  rpc GetUUID (stream PhotonDanceSnowflakeServiceRequest) returns (stream PhotonDanceSnowflakeServiceResponse) {}
+}
+
+message PhotonDanceSnowflakeServiceRequest {
+  string machine_id = 1;
+}
+
+message PhotonDanceSnowflakeServiceResponse {
+  string uuid = 1;
+}
