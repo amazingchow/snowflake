@@ -34,7 +34,10 @@ private:
     Snowflake& operator=(Snowflake &&) = delete;
 
 public:
-    int64_t next_uuid();
+    // used for non-server-service
+    int64_t next_uuid_v1();
+    // used for server-service
+    int64_t next_uuid_v2(const int64_t &mid);
     static int64_t now() {
         return (std::chrono::duration_cast<std::chrono::milliseconds>( \
             std::chrono::system_clock::now().time_since_epoch()).count() - TWITTER_SNOWFLAKE_EPOCH);        
