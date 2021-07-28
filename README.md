@@ -31,6 +31,16 @@ Counter within milliseconds, the 12-bits can support most up to 4096 sequence nu
 
 The UUIDs are increased in order by timestamp.
 
+## What is my Snowflake?
+
+I provide a grpc server to serve the Snowflake UUID generating which run@0.0.0.0:18888.
+
+You can use grpcurl to test it.
+
+```shell
+grpcurl -plaintext -d '{"machine_id": 8}' 0.0.0.0:18888 photon_dance_snowflake_service.PhotonDanceSnowflakeService/GetUUID
+```
+
 ## Requirements
 
 The following minimum versions are required to build the library
