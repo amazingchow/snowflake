@@ -1,4 +1,4 @@
-# photon-dance-snowflake
+# snowflake
 
 To efficiently generate 64-bit UUID for large-scale distributed application.
 
@@ -53,10 +53,10 @@ The following minimum versions are required to build the library
 
 ```text
 # Check out the library.
-$ git clone https://github.com/amazingchow/photon-dance-snowflake.git
+$ git clone https://github.com/amazingchow/snowflake.git
 
 # Go to the library root directory.
-$ cd photon-dance-snowflake
+$ cd snowflake
 
 # Make a build directory to place the build output.
 $ cmake -E make_directory "build"
@@ -127,7 +127,7 @@ sudo cpupower frequency-set --governor powersave
 
 ### Step 3
 
-* 🔃 Create a new PR using https://github.com/amazingchow/photon-dance-snowflake/compare!
+* 🔃 Create a new PR using https://github.com/amazingchow/snowflake/compare!
 
 ## Support
 
